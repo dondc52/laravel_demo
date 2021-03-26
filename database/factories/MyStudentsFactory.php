@@ -1,0 +1,32 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\MyStudents;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class MyStudentsFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = MyStudents::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'full_name' => $this->faker->name,
+            'email' => $this->faker->unique()->safeEmail,
+            'phone' => $this->faker->phoneNumber,
+            'address' => $this->faker->address,
+            'birthday' => $this->faker->dateTimeThisCentury->format('Y-m-d'),
+        ];
+    }
+}
